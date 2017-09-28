@@ -1,2 +1,15 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<h3><%= @article.title %></h3>
+<p>首次发表于：<%= @article.created_at.strftime('%y-%m-%d') %></p>
+<br>
+<p><%= @article.text %></p>
+
+<br>
+<p>评论区：</p>
+<%= render @article.comments %>
+<br>
+<br>
+<p>创建一条评论吧！</p>
+<%= render 'comments/form' %>
+
+<%= link_to '返回', articles_path %>
+<%= link_to '修改', edit_article_path(@article) %>
